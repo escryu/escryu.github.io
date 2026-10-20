@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.escryu.notesrain",
+        "sha256_cert_fingerprints": ["E7:FA:C5:AB:E9:8B:A4:41:EC:60:2C:7E:16:91:F5:FD:ED:2F:62:48:D6:8F:F9:BA:9D:F6:AF:7E:73:E8:DB:FF"]
+      }
+    }]
