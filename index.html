@@ -4362,6 +4362,17 @@ function syncFrame(){
 }
 })();
 </script>
-<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{});});}</script>
+<script>
+if("serviceWorker" in navigator){
+  let reloaded=false;
+  navigator.serviceWorker.addEventListener("controllerchange",()=>{if(reloaded)return;reloaded=true;location.reload();});
+  window.addEventListener("load",()=>{
+    navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(reg=>{
+      const chk=()=>{try{reg.update();}catch(e){}};
+      chk(); document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")chk();});
+    }).catch(()=>{});
+  });
+}
+</script>
 </body>
 </html>
